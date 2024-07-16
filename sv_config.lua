@@ -1,5 +1,4 @@
-RegisterNetEvent('wonder_pt_announce')
-AddEventHandler('wonder_pt_announce', function(message)
+RegisterNetEvent('wonder_pt_announce', function(message)
 	local toSay = ''
 	toSay = message
 	TriggerClientEvent('chat:addMessage', -1, {
