@@ -1,35 +1,30 @@
 TriggerEvent('chat:addSuggestion', '/pt', 'Toggle peacetime.', {{
-	{ name="reason", help=TranslateCap('pt_reason') },
+	{ name="reason", help=TranslateCap('pt_reason_chat') },
 }})
 
 ptEnabled = false
 
-RegisterNetEvent('wonder_pt:enabled')
-AddEventHandler('wonder_pt:enabled', function()
+RegisterNetEvent('wonder_pt:enabled', function()
   ptEnabled = true
   SendNUIMessage({
     type = 'enablePT',
   })
 end)
 
-RegisterNetEvent('wonder_pt:disabled')
-AddEventHandler('wonder_pt:disabled', function()
+RegisterNetEvent('wonder_pt:disabled', function()
   ptEnabled = false
   SendNUIMessage({
     type = 'disablePT',
   })
 end)
 
-CreateThread( function()
-	while true do
-		Wait(2000)
-		if GlobalState.peacetime == true and ptEnabled == false then
-			TriggerEvent('wonder_pt:enabled')
-		elseif GlobalState.peacetimePD == true and ptEnabled == false then
-			TriggerEvent('wonder_pt:enabled')
-		elseif GlobalState.peacetimePD == false and GlobalState.peacetime == false and ptEnabled == true then
-			TriggerEvent('wonder_pt:disabled')
-		end
+AddStateBagChangeHandler("peacetimePD", nil, function() 
+    if GlobalState.peacetime == true and ptEnabled == false then
+		TriggerEvent('wonder_pt:enabled')
+	elseif GlobalState.peacetimePD == true and ptEnabled == false then
+		TriggerEvent('wonder_pt:enabled')
+	elseif GlobalState.peacetimePD == false and GlobalState.peacetime == false and ptEnabled == true then
+		TriggerEvent('wonder_pt:disabled')
 	end
 end)
 
