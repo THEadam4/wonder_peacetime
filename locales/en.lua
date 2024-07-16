@@ -3,5 +3,5 @@ Locales['en'] = {
   ['pt_reason'] = 'PEACETIME is now active! Reason: ',
   ['pt_noreason'] = 'PEACETIME is now active!',
   ['pt_disabled'] = 'PEACETIME is no longer active. :-)',
-  ['pt_reason'] = 'Důvod',
+  ['pt_reason_chat'] = 'Důvod',
 }
