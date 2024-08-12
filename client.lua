@@ -18,13 +18,16 @@ RegisterNetEvent('wonder_pt:disabled', function()
   })
 end)
 
-AddStateBagChangeHandler("peacetimePD", nil, function() 
-    if GlobalState.peacetime == true and ptEnabled == false then
-		TriggerEvent('wonder_pt:enabled')
-	elseif GlobalState.peacetimePD == true and ptEnabled == false then
-		TriggerEvent('wonder_pt:enabled')
-	elseif GlobalState.peacetimePD == false and GlobalState.peacetime == false and ptEnabled == true then
-		TriggerEvent('wonder_pt:disabled')
+CreateThread( function()
+	while true do
+		Wait(2000)
+		if GlobalState.peacetime == true and ptEnabled == false then
+			TriggerEvent('wonder_pt:enabled')
+		elseif GlobalState.peacetimePD == true and ptEnabled == false then
+			TriggerEvent('wonder_pt:enabled')
+		elseif GlobalState.peacetimePD == false and GlobalState.peacetime == false and ptEnabled == true then
+			TriggerEvent('wonder_pt:disabled')
+		end
 	end
 end)
 
