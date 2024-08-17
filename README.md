@@ -6,3 +6,5 @@ Docs - https://theadam4.gitbook.io/wonder-scripts-docs/scripts/wonder-peacetime
 Cfx Forum Post - https://forum.cfx.re/t/free-esx-advanced-peacetime-script-optimized-highly-customizable/5250462
 
 Tebex - https://wonder-scripts.tebex.io/
+
+Discord - https://discord.gg/4kA8s95pWX
